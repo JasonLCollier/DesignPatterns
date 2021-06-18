@@ -9,7 +9,7 @@ namespace Singleton
     /// The 'AbstractFactory' abstract class
     abstract class SpeciesFactory
     {
-        public abstract Herbivore CreateOmnivore();
+        public abstract Herbivore CreateHerbivore();
         public abstract Carnivore CreateCarnivore();
     }
 
@@ -19,7 +19,7 @@ namespace Singleton
     class DogFactory : SpeciesFactory
 
     {
-        public override Herbivore CreateOmnivore()
+        public override Herbivore CreateHerbivore()
         {
             return new Poodle();
         }
@@ -36,7 +36,7 @@ namespace Singleton
     class CatFactory : SpeciesFactory
 
     {
-        public override Herbivore CreateOmnivore()
+        public override Herbivore CreateHerbivore()
         {
             return new Siamese();
         }
@@ -121,7 +121,7 @@ namespace Singleton
         public AnimalWorld(SpeciesFactory factory)
         {
             _carnivore = factory.CreateCarnivore();
-            _herbivore = factory.CreateOmnivore();
+            _herbivore = factory.CreateHerbivore();
         }
 
         public void RunFoodChain()

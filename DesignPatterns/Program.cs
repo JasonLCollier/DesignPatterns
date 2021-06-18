@@ -42,7 +42,8 @@ namespace Console.App
 
             System.Console.WriteLine("---------------------------\n");
 
-            //Builder pattern
+            //Abstract factory pattern
+            //TODO: Remix this to make more sense
 
             SpeciesFactory dog = new DogFactory();
             AnimalWorld world = new AnimalWorld(dog);
@@ -54,7 +55,7 @@ namespace Console.App
 
             System.Console.WriteLine("---------------------------\n");
 
-            //Abstract factory
+            //Builder pattern
 
             GadgetBuilder builder;
             Shop shop = new Shop();
@@ -70,6 +71,26 @@ namespace Console.App
             builder = new WatchBuilder();
             shop.Construct(builder);
             builder.Device.Show();
+
+            System.Console.WriteLine("---------------------------\n");
+
+            //Factory Pattern
+
+            Document[] documents = new Document[2];
+
+            documents[0] = new Resume();
+            documents[1] = new Report();
+
+            // Display document pages
+
+            foreach (Document document in documents)
+            {
+                System.Console.WriteLine("\n" + document.GetType().Name + "--");
+                foreach (Page page in document.Pages)
+                {
+                    System.Console.WriteLine(" " + page.GetType().Name);
+                }
+            }
 
             System.Console.WriteLine("---------------------------\n");
 
